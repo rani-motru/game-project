@@ -1,3 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister&display=swap");
+html{
+    height: 100%;
+    width: 100%;
+}
 p{
     font-family:Lucida Sans;
     font-size:40px;
@@ -9,7 +14,13 @@ p{
 }
 body {
  background-image: url("background.jpg");
- background-size:cover;
+ /* background-attachment: fixed; */ 
+ /* background-size: 100%;; */
+ height:100%;
+ background-position: center;
+ background-repeat: no-repeat;
+ background-size: cover;
+ /* overflow: hidden; */
 }
 
 #button-container {
@@ -21,11 +32,11 @@ body {
     margin-top: 20px;
 }
 
-#button-container > .i {
+#button-container > .letter {
  cursor: pointer;
 }
 
-.i {
+.letter {
     font-family:'Orbitron', sans-serif;
     background-color:whitesmoke;
     color: black;
@@ -39,7 +50,7 @@ body {
     box-shadow: rgba(0,0,0,0.4) 0px 2px 4px, rgba(0,0,0,0.3) 0px 7px 13px -3px, rgba(0,0,0,0.2) 0px -3px 0px inset;
 }
 
-.i:hover{
+.letter:hover{
     box-shadow: rgba(0,0,0,0.15) 0px 2px 8px;
 }
 
@@ -50,10 +61,14 @@ body {
 
 }
 
-#key-container > .i-container{
+#key-container > .letter-container{
     margin:0;
     width:45px;
     height:48px;
     text-align: center;
     border-bottom: 3px solid rgba(0,0,0,0.5);
+}
+
+.hidden{
+    display:none;
 }

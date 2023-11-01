@@ -22,10 +22,13 @@ function genQues(word)
 // }
 //2.function to generate 
 //3.FUNCTION FOR CHECKING WINNER OR LOOSER.
- function winner(){
-      if(hideLetter === 0){
+ function winOrLoose(){
+  hideLetterElements = document.querySelectorAll(".hidden");
+       if(hideLetterElements.length === 0){
         console.log('YAY!! YOu WIN!')
-      } else if(olafparts ===0){
+      } else if(olafparts === 0){
+        document.querySelector("#olaf-container").innerHTMl ="<h2> YOU LOOSE!GAME OVER!</h2>";
+        letterbox.innerHTML = "<h2> The Word was ${quesWord}</h2>"
         console.log("YOU LOOSE! ")
       }
  }
@@ -35,19 +38,46 @@ function genQues(word)
     let letters = blanks.split("");
     let KeyContainer =document.querySelector("#Key-container");
     let htmlLetters = "";
-    for(let i of letters) {
-        let eachLetter = `<p class = "letter-space"><div class ="i hidden">${i}</div></p>`;
+    for(let letter of letters) {
+        let eachLetter = `<p class = "letter-space"><div class ="letter hidden">${letter}</div></p>`;
         htmlLetters += eachLetter;
     }
 
     KeyContainer.innerHTML = htmlLetters;
   }
 
+  //function to handle for letter clicks
+  function letterboxClick(event) {
+    let clickedElement = event.target;
+    if(!clickedElement.classList.contains("letter")||clickedElement.classList.contains("selected"))return;
+    clickedElement.classList.add("selected");
+
+  let clickedLetter = clickedElement.textContent;
+  let foundMatch = checkFoundMatch(clickedLetter);
+  //if the letter is found 
+  if(!foundMatch){
+    removeOlafPart();
+    winOrLoose();
+  } else {
+    winOrLoose();
+  }
+  }
+  // function to check for a match
+  function checkFoundMatch(clickedLetter){
+    let hideLetterElements = document.querySelectorAll(".hidden");
+     foundMatch = false;
+  for(let hideLetterElement of hideLetterElements){
+     let hiddenLetter = hideLetterElement.textContent;
+     if(hiddenLetter === clickedLetter){
+       hideLetterElement.classList.remove("hidden");
+       foundMatch = true;
+     }
+  } 
+  return foundMatch;
+  }
+
 //To display the number of spcaes on the screen
 //Game loop here
-let quesWord= genQues(hideWord);
-//  console.log(quesArray);
-populateBlank(quesWord);
 let letterbox = document.querySelector("#button-container");
 let startBtn = document.querySelector("#startButton")
 let reStartBtn = document.querySelector("#restartButton")
@@ -55,12 +85,12 @@ let pressStart = false;
 let pressRetreat = false;
 let lives = 5;
 
-letterbox.addEventListener("click",letterboxClick);
-
-
-function play(){
 if(pressStart){
-    pressStart = false;
-    let quesArray = genQues(hideWord);
+let quesWord= genQues(hideWord);
+//  console.log(quesArray);
+populateBlank(quesWord);
 }
-}
+
+
+
+letterbox.addEventListener("click",letterboxClick);
