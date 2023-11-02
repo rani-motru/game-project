@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://fonts.google.com/specimen/Righteous" rel="stylesheet">
-    <link href="style.css" rel="stylesheet" type="text/css" />
-</head>
-<body>
-    <p id = "mainText">Save The Olaf</p>
-    <main>
-    <section id ="olaf-container">
-        <img></img></section>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Save the Olaf</title>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+    </head>
+    <body>
+        <h1 id = "mainText">Save The Olaf </h1>
+        <main>
+            <section id="olaf-container">
+                <img class="head" src="olaf-head.png" />
+                <img class="hands" src="olaf-hands.png" />
+                <img class="smallbody" src="olaf-smallbody.png" />
+                <img class="bigbody" src="olaf-bigbody.png" />
+                <img class="legs" src="olaf-legs.png" />
+        </section>
 
-        <section id ="Key-container"></section>
+        <section id ="empty-letter-container"></section> <!-- hidden box -->
 
-        <section class ="button-container">
+        <section id="keyboard-container">
         <div class ="letter">A</div>
         <div class ="letter">B</div>
         <div class ="letter">C</div>
@@ -42,15 +46,15 @@
         <div class ="letter">X</div>
         <div class ="letter">Y</div>
         <div class ="letter">Z</div>
-    </section>
-</main>
+        </section>
+    </main>
          <!-- for the empty container below the snowman  -->
         
         <!-- <div class ="button-container"></div> -->
-        <p id = "gameText"></p>
-        <!-- <button onclick ="genQues();">genrate word</button> -->
-        <button id="startbutton">Start</button>
-        <button id="restartButton">restart</button>
+        <!-- <p id = "gameText"></p>
+        <button onclick ="genQues();">genrate word</button> -->
+        <!-- <button id="startbutton">Start</button>
+        <button id="restartButton">restart</button> -->
 
 
     <script src = "script.js"></script>
