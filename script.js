@@ -11,6 +11,9 @@ var olafParts = [
     ".legs"
 ];
 
+let score = 100;
+let time = 0;
+let timerInterval;
 //To display the number of spcaes on the screen
 //Game loop here
 var letterbox = document.querySelector("#keyboard-container");
@@ -50,6 +53,7 @@ function checkForLoser() {
     if (olafParts.length === 0) {
         document.querySelector("#olaf-container").innerHTML = "<h2> YOU LOOSE!GAME OVER!</h2>";
         letterbox.innerHTML = `<h2> The Word was ${quesWord}</h2>`;
+        clearInterval(timerInterval);
     }
 }
 
@@ -57,6 +61,7 @@ function checkForWinner() {
     var hideLetterElements = document.querySelectorAll(".hidden");
     if (hideLetterElements.length === 0) {
         letterbox.innerHTML = "<h2>YAY!! YOu WIN!</h2>";
+        clearInterval(timerInterval);
       }
  }
  
@@ -68,7 +73,7 @@ function checkForWinner() {
     //  newBlankDiv.textContent = displayWord;
     //  let KeyContainer =document.getElementById("#empty-letter-container");
     //  KeyContainer.appendChild(newBlankDiv);
-    var letters = blanks.split("");
+    var letters = blanks.split(""); //this will split the word in the variable "blank" into array of letters.
     var KeyContainer = document.querySelector("#empty-letter-container");
     var htmlLetters = "";
     for (var letter of letters) {
@@ -115,10 +120,32 @@ function checkFoundMatch(clickedLetter) {
 
 
 function removeOlafPart() {
-    var olafPart = olafParts.shift();
+    var olafPart = olafParts.shift(); //shift means remove the item .
     var partsToRemove = document.querySelectorAll(olafPart);
 
     for (var partToRemove of partsToRemove) {
         partToRemove.remove();
+        score-=20;
+        document.getElementById("score-value").textContent =score;
     }
+}
+
+const startButton = document.querySelector("#startButton");
+const resetButton = document.querySelector("#resetButton");
+startButton.addEventListener("click", startGame);
+resetButton.addEventListener("click", resetGame);
+
+function startGame() {
+    document.getElementById("overlay").style.display = "none";
+    document.getElementById("content").style.display = "block";
+    timerInterval = setInterval(updateTimer, 1000);
+}
+function resetGame() {
+
+    location.reload();
+}
+
+function updateTimer() {
+    time++;
+    document.getElementById("timer-value").textContent = time;
 }
