@@ -149,26 +149,6 @@ h2 {
     display: none;
 }
 
-#error-message {
-    background-color: red;
-    color: yellow;
-    padding: 18px;
-    font-size: 18px;
-    font-weight: bold;
-    line-height: 1.2;
-    position: fixed;
-    z-index: 100;
-    border-radius: 8px;
-}
-
-#blackout {
-    width: 100vw;
-    height: 100vh;
-    background-color: #0000003d;
-    z-index: 99;
-    position: fixed;
-}
-
 #overlay {
     position: fixed;
     top: 0;
@@ -212,8 +192,7 @@ h2 {
     justify-content: center;
     font-family: "Righteous", cursive;
     font-size: 20px; 
-    /* box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
-    rgba(0, 0, 0, 0.2) 0px -3px 0px inset; */
+    /* box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,  inset; */
 }
 
 #resetButton {
@@ -224,6 +203,5 @@ h2 {
     border-radius: 5px;
     font-family: "Righteous", cursive;
     font-size: 20px; 
-    /* box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
-    rgba(0, 0, 0, 0.2) 0px -3px 0px inset; */
+    /* box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px*/
 }
