@@ -11,7 +11,7 @@ var olafParts = [
     ".legs"
 ];
 
-let score = 100;
+let score = 100; // setting the score to high value.
 let time = 0;
 let timerInterval;
 //To display the number of spcaes on the screen
@@ -56,7 +56,7 @@ function checkForLoser() {
         clearInterval(timerInterval);
     }
 }
-
+// function for checking the checkForWinner.
 function checkForWinner() {
     var hideLetterElements = document.querySelectorAll(".hidden");
     if (hideLetterElements.length === 0) {
@@ -87,7 +87,7 @@ function checkForWinner() {
   // }
 
   //function to handle for letter clicks
-function letterboxClick(event) {
+function letterboxClick(event) { //event means clicks
     var clickedElement = event.target;
     if (!clickedElement.classList.contains("letter") || clickedElement.classList.contains("selected")) return;
     clickedElement.classList.add("selected");
@@ -118,7 +118,7 @@ function checkFoundMatch(clickedLetter) {
   }
 
 
-
+//function to remove olaf parts
 function removeOlafPart() {
     var olafPart = olafParts.shift(); //shift means remove the item .
     var partsToRemove = document.querySelectorAll(olafPart);
@@ -134,17 +134,18 @@ const startButton = document.querySelector("#startButton");
 const resetButton = document.querySelector("#resetButton");
 startButton.addEventListener("click", startGame);
 resetButton.addEventListener("click", resetGame);
-
+//function to start the game
 function startGame() {
     document.getElementById("overlay").style.display = "none";
     document.getElementById("content").style.display = "block";
     timerInterval = setInterval(updateTimer, 1000);
 }
+// function to restart
 function resetGame() {
 
     location.reload();
 }
-
+// function to update Timer
 function updateTimer() {
     time++;
     document.getElementById("timer-value").textContent = time;
