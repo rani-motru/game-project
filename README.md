@@ -19,3 +19,4 @@
 6.If the player is not able to figure the word there will be a message displayed on the screen " YOU LOOSE!!" along with the correct word.
 
 
+![save the olaf-wireframedrawio](https://github.com/rani-motru/game-project/assets/137830826/b456cace-4a4a-4e05-a4f8-3f94fe1f96f6)
