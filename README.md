@@ -3,6 +3,10 @@
 # Description: 
   This is a game of guessing a hidden word, with a olaf picture in the center of screen.
 
+# To Play:
+
+[https://rani-motru.github.io/game-project](https://rani-motru.github.io/game-project)
+
 # Technologies Used:
  ``Html``
 ``JavaScript``
